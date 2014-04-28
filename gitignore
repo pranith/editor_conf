@@ -1,0 +1,11 @@
+.gitignore
+.classpath
+.project
+eclipse-bin/
+build
+var
+.*.swp
+apollo-overrides
+.settings
+GTAGS
+cscope.out
