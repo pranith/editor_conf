@@ -10,3 +10,4 @@ apollo-overrides
 GTAGS
 cscope.out
 *~
+*.o
