@@ -7,6 +7,9 @@ var
 apollo-overrides
 .settings
 GTAGS
+GPATH
+GRTAGS
+GSYMS
 cscope.out
 *~
 *.o
