@@ -1,0 +1,33 @@
+[color]
+	ui = auto
+
+[user]
+        name = Pranith Kumar
+        email = bobby.prani@gmail.com
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        ui = auto
+[core]
+        legacyheaders = false
+        pager = less -FRSX
+        excludesfile = /home/pranith/.gitignore
+[repack]
+        usedeltabaseoffset = true
+[merge]
+        keepBackup = false;
+        tool = p4merge
+[mergetool "p4merge"]
+        cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+        keepTemporaries = false
+        trustExitCode = false
+        keepBackup = false
+[rerere]
+        enabled = 1
+[alias]
+        graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+
+[push]
+        default = tracking
+
