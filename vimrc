@@ -1,20 +1,36 @@
-" Author: Pranith Kumar
-" Date  : 2014-04-17
+version 6.0
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
+map! <S-Insert> <MiddleMouse>
+nmap gx <Plug>NetrwBrowseX
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
+map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q . /usr/include/*.h 
+map <S-Insert> <MiddleMouse>
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set autoindent
+set background=dark
+set backspace=indent,eol,start
+set cindent
+set fileencodings=ucs-bom,utf-8,default,latin1
+set guifont=Monaco\ 11
+set helplang=en
+set hlsearch
+set ignorecase
+set mouse=a
+set printoptions=paper:letter
+set ruler
+set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim73,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
+set shiftwidth=4
+set smartindent
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set tabstop=4
+set termencoding=utf-8
+set textwidth=80
+set window=49
+set number
+colorscheme torte
 syntax on
 filetype plugin on
-set tabstop=4
-set shiftwidth=4
-" set expandtab
-set tw=80
-
-set hlsearch
-set number
-set autoindent
-set cindent
-set smartindent
-set ignorecase
-
-set nocp
-
-" map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q . /usr/include/*.h 
-
+" vim: set ft=vim :
