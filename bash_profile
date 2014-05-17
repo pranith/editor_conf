@@ -5,12 +5,12 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/pranith/pin/intel64/lib-ext:/lib:/
 
 export TMOUT=0
 export AF_PATH=/home/pranith/arrayfire/arrayfire
-#source /hparch/software/intel/bin/compilervars.sh intel64
-source /opt/intel/bin/compilervars.sh intel64
+# source /hparch/software/intel/bin/compilervars.sh intel64
+# source /opt/intel/bin/compilervars.sh intel64
 # alias icpc="icpc -B/usr/lib/x86_64-linux-gnu -I/usr/include/x86_64-linux-gnu"
 # alias icc="icc -B/usr/lib/x86_64-linux-gnu -I/usr/include/x86_64-linux-gnu"
-#alias g++="g++ -B/usr/lib/x86_64-linux-gnu -I/usr/include/x86_64-linux-gnu"
-#alias gcc="gcc -B/usr/lib/x86_64-linux-gnu -I/usr/include/x86_64-linux-gnu"
+# alias g++="g++ -B/usr/lib/x86_64-linux-gnu -I/usr/include/x86_64-linux-gnu"
+# alias gcc="gcc -B/usr/lib/x86_64-linux-gnu -I/usr/include/x86_64-linux-gnu"
 DEBEMAIL="bobby.prani@gmail.com"
 DEBFULLNAME="Pranith Kumar"
 export DEBEMAIL DEBFULLNAME
