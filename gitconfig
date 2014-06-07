@@ -26,3 +26,8 @@
 [push]
         default = tracking
 
+[sendemail]
+	smtpserver = smtp.gmail.com
+	smtpserverport = 587
+	smtpencryption = tls
+	smtpuser = bobby.prani@gmail.com
