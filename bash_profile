@@ -1,5 +1,7 @@
 alias ls="ls --color"
 alias ll="ls -lh --color"
+alias gsend='git send-email --from "Pranith Kumar <bobby.prani@gmail.com>" --envelope-sender "Pranith Kumar <bobby.prani@gmail.com>" '
+
 export PATH=$PATH:/usr/bin:/sbin:/usr/local/bin:/home/pranith/intel/bin:/usr/sbin:/home/pranith/pin:/usr/local/cuda/bin/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/pranith/pin/intel64/lib-ext:/lib:/usr/lib:/usr/local/lib:/home/pranith/prophet/pin-linux/intel64/bin/:/usr/local/cuda/lib64/:/usr/local/cuda/lib/
 

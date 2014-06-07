@@ -31,3 +31,5 @@
 	smtpserverport = 587
 	smtpencryption = tls
 	smtpuser = bobby.prani@gmail.com
+[credential]
+	helper = cache --timeout=36000000
