@@ -17,6 +17,7 @@
         usedeltabaseoffset = true
 [merge]
         keepBackup = false;
+	tool = vimdiff
 [rerere]
         enabled = 1
 [alias]
@@ -33,3 +34,7 @@
 	smtpuser = bobby.prani@gmail.com
 [credential]
 	helper = cache --timeout=36000000
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
