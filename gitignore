@@ -13,3 +13,5 @@ GSYMS
 cscope.out
 *~
 *.o
+*.exe
+*.csv
