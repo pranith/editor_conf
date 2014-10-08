@@ -50,8 +50,8 @@
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 ; Start speedbar automatically if we're using a window system like X, etc
-;; (when window-system 
-;; 	(speedbar t))
+	(when window-system
+		(speedbar t))
 
 (add-to-list 'load-path "~/.emacs.d/emacs-color-theme-solarized")
 (if 
@@ -265,3 +265,5 @@
 
     (smart-tabs-advice c-indent-line c-basic-offset)
     (smart-tabs-advice c-indent-region c-basic-offset)
+
+(custom-set-faces (if (not window-system) '(default ((t (:background "nil"))))))
