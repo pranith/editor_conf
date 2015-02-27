@@ -25,6 +25,8 @@
 [alias]
         graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
         psed = !sh -c 'git grep --null --full-name --name-only --perl-regexp -e \"$1\" | xargs -0 perl -i -p -e \"s/$1/$2/g\"' -
+	sdry = send-email --to-cmd=scripts/get_maintainer.pl --no-chain-reply --suppress-cc=sob --suppress-cc=self patch_dir --dry-run
+	semail = send-email --to-cmd=scripts/get_maintainer.pl --no-chain-reply --suppress-cc=sob --suppress-cc=self patch_dir
 
 [push]
         default = tracking
