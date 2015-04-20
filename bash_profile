@@ -26,3 +26,9 @@ export NDK_ROOT=/home/pranith/devops/android-ndk-r8b
 export NDKROOT=/home/pranith/devops/android-ndk-r8b
 export AVRO_ROOT=/home/pranith/devops/code/cloudComputing/avro/
 export ANDROID_HOME=/home/pranith/devops/android-ndk-r8b
+
+# ccache
+export CCACHE_DIR="/media/mobops/.ccache/"
+export CC="ccache gcc"
+export CXX="ccache g++"
+export PATH="/usr/lib/ccache:$PATH"
