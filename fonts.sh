@@ -12,7 +12,7 @@ rm -r mac_fonts.tar.gz
  
 # install other fonts
 printf "Installing other fonts...\n"
-sudo apt-get -y install fonts-droid fonts-noto
+sudo apt-get -y install fonts-droid fonts-noto ttf-ancient-fonts
 curl -L https://github.com/hbin/top-programming-fonts/raw/master/install.sh | bash
  
 # improve font-hinting and smoothing similar to Mac OS X
