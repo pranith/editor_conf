@@ -6,12 +6,12 @@
 ;; sr-speedbar for source tree traversal
 (require 'sr-speedbar)
 
-
 ;; sr-speedbar config
 (setq sr-speedbar-right-side nil)
 (setq sr-speedbar-skip-other-window-p t)
 (setq sr-speedbar-auto-refresh t)
-(setq sr-speedbar-max-width 10)
+(setq sr-speedbar-max-width-x 20)
+(setq sr-speedbar-width 15)
 
 ;; regular speedbar config
 (setq speedbar-show-unknown-files t)
@@ -43,8 +43,7 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 
-(setq org-agenda-files (list "~/devops/Dropbox/orgmode/todo.org"
-			     "~/devops/Dropbox/orgmode/personal.org"))
+(setq org-agenda-files (list "~/devops/Dropbox/work/log.org"))
 
 (setq org-latex-to-pdf-process '("texi2dvi --pdf --clean --verbose --batch %f"))
 (setq org-export-latex-hyperref-format "\\ref{%s}")
