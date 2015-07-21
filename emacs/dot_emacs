@@ -101,7 +101,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(inhibit-startup-screen t))
+ '(inhibit-startup-screen t)
+ '(package-selected-packages (quote (magit sml-mode org nlinum ggtags evil-jumper))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -117,6 +118,13 @@
 
 ;; add line numbers
 (add-hook 'prog-mode-hook 'linum-mode)
+(defun linum-format-func (line)
+  (let ((w (length (number-to-string (count-lines (point-min) (point-max))))))
+     (propertize (format (format "%%%dd " w) line) 'face 'linum)))
+(setq linum-format 'linum-format-func)
+;;(setq linum-format " %d ")
+(setq-default left-fringe-width  10)
+(set-face-attribute 'fringe nil :background "black")
 
 ;; marmalade package repository
 (require 'package)
@@ -130,3 +138,6 @@
 (require 'evil)
 (evil-mode 1)
 
+;; magit settings
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
