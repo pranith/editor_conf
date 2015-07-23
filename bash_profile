@@ -38,3 +38,7 @@ export CXX="ccache g++"
 export PATH="/usr/lib/ccache:$PATH"
 export QSIM_PREFIX="/home/pranith/devops/code/qsim/"
 export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$ "
+
+#emacs
+export EDITOR='emacs -nw'
+export VISUAL='emacs'
