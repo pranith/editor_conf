@@ -1,6 +1,10 @@
 alias ls="ls --color"
 alias ll="ls -lh --color"
 alias gsend='git send-email --from "Pranith Kumar <bobby.prani@gmail.com>" --envelope-sender "Pranith Kumar <bobby.prani@gmail.com>" '
+alias b="./build.py -j16"
+alias bd="./build.py -d -j16"
+alias bc="./build.py -c"
+alias vim="emacs -nw"
 
 export PATH=$PATH:/usr/bin:/sbin:/usr/local/bin:/home/pranith/intel/bin:/usr/sbin:/home/pranith/pin:/usr/local/cuda/bin/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/pranith/pin/intel64/lib-ext:/lib:/usr/lib:/usr/local/lib:/home/pranith/prophet/pin-linux/intel64/bin/:/usr/local/cuda/lib64/:/usr/local/cuda/lib/
@@ -28,7 +32,9 @@ export AVRO_ROOT=/home/pranith/devops/code/cloudComputing/avro/
 export ANDROID_HOME=/home/pranith/devops/android-ndk-r8b
 
 # ccache
-export CCACHE_DIR="/media/mobops/.ccache/"
+export CCACHE_DIR="/home/pranith/devops/.ccache/"
 export CC="ccache gcc"
 export CXX="ccache g++"
 export PATH="/usr/lib/ccache:$PATH"
+export QSIM_PREFIX="/home/pranith/devops/code/qsim/"
+export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$ "
