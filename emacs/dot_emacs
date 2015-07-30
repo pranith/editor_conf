@@ -60,6 +60,15 @@
 ;;(load-theme 'solarized-light t))
 
 ;; global+speedbar for autocompletion
+(setq load-path (cons "/usr/share/emacs/site-lisp/global/gtags.el" load-path))
+(autoload 'gtags-mode "gtags" "" t)
+(add-hook 'c++-mode-hook
+   '(lambda ()
+      (gtags-mode t)
+))
+(global-set-key (kbd "M-]") 'gtags-find-symbol)
+;;(global-set-key (kbd "M-[") 'gtags-find-rtag)
+
 (require 'auto-complete-clang)
 (setq clang-completion-suppress-error 't)
 
@@ -68,6 +77,9 @@
       (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
         (ggtags-mode 1))))
  
+(require 'auto-complete-config)
+(ac-config-default)
+
 (defun my-c-mode-common-hook()
   (setq ac-auto-start t)
   (setq ac-expand-on-auto-complete nil)
@@ -80,6 +92,21 @@
 ;; smart-tab https://github.com/genehack/smart-tab
 (require 'smart-tab)
 (global-smart-tab-mode 1)
+
+;; Setup save options (auto and backup) -- still buggy need new Replace func
+(setq auto-save-timeout 2000)
+
+;; Setup time mode
+(autoload 'display-time "time" "Display Time" t)
+(condition-case err
+    (display-time)
+  (error (message "Unable to load Time package.")))
+(setq display-time-24hr-format nil)
+(setq display-time-day-and-date t)
+
+;; Setup text mode
+(add-hook 'text-mode-hook '(lambda() (auto-fill-mode 1)))
+(add-hook 'text-mode-hook '(lambda() (setq fill-column 78)))
 
 ;; Setup C mode
 (autoload 'c++-mode  "cc-mode" "C++ Editing Mode" t)
@@ -188,3 +215,8 @@
 (xterm-mouse-mode t)
 ;;(defun track-mouse (e)) 
 ;;(setq mouse-sel-mode t)
+
+(require 'xcscope)
+
+;; Add final message so using C-h l I can see if .emacs failed
+(message ".emacs loaded successfully.")
