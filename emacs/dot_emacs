@@ -5,6 +5,9 @@
 
 ;; sr-speedbar for source tree traversal
 (require 'sr-speedbar)
+;; evil-mode - Thanks for all the fish, Vim!
+(require 'evil)
+;;(evil-mode 1)
 
 ;; sr-speedbar config
 (setq sr-speedbar-right-side nil)
@@ -65,6 +68,7 @@
 (add-hook 'c++-mode-hook
    '(lambda ()
       (gtags-mode t)
+      (evil-mode 1)
 ))
 (global-set-key (kbd "M-]") 'gtags-find-symbol)
 ;;(global-set-key (kbd "M-[") 'gtags-find-rtag)
@@ -75,7 +79,8 @@
 (add-hook 'c-mode-common-hook
     '(lambda ()
       (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-        (ggtags-mode 1))))
+        (ggtags-mode 1)
+        (evil-mode 1))))
  
 (require 'auto-complete-config)
 (ac-config-default)
@@ -200,21 +205,10 @@
         package-archives)
   (package-initialize)
 
-;; evil-mode - Thanks for all the fish, Vim!
-(require 'evil)
-(evil-mode 1)
-(setq evil-shift-width 4)
-(setq indent-tabs-mode nil)
-
 ;; magit settings
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 
-;; mouse mode
-(require 'mouse)
-(xterm-mouse-mode t)
-;;(defun track-mouse (e)) 
-;;(setq mouse-sel-mode t)
 
 (require 'xcscope)
 
