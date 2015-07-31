@@ -1,8 +1,6 @@
 .classpath
 .project
 eclipse-bin/
-scripts/bin2c
-arch/x86/purgatory
 build
 var
 .*.swp
@@ -18,3 +16,4 @@ cscope.out
 *.exe
 *.csv
 .gitignore
+.dir-locals.el
