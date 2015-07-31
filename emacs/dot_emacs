@@ -128,9 +128,7 @@
 ; Start speedbar automatically if we're using a window system like X, etc
 ;(when window-system (speedbar t))
 
-;; tab width 4
-(setq-default tab-width 4)
-(setq c-basic-offset 4)
+;; show line numbers
 (linum-mode 1)
 
 ;; Setup text mode
