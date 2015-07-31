@@ -1,4 +1,5 @@
-((nil . ((indent-tabs-mode . t)
+((nil . ((c-default-style "linux")
+         (indent-tabs-mode . t)
          (c-tab-always-indent . t)
          (c-basic-offset . 8)
          (c-hanging-braces-alist . (
