@@ -4,7 +4,8 @@ cp emacs/dot_emacs ~/.emacs
 cp bash_profile ~/.bash_profile
 cp gitconfig ~/.gitconfig
 cp gitignore ~/.gitignore
-if [ ! -d .emacs.d]; then
+if [ -d "~/.emacs.d/" ]; then
+	echo "Copying emacs configuration...";
 	cp -rf emacs/emacs.d/ ~/.emacs.d/
 	cd ~/.emacs.d/
 	rm -rf color-theme-sanityinc-solarized
