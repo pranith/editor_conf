@@ -62,6 +62,13 @@
 ;;            (load-theme 'solarized-light t)))
 ;;(load-theme 'solarized-light t))
 
+;; @see https://bitbucket.org/lyro/evil/issue/511/let-certain-minor-modes-key-bindings
+(eval-after-load 'ggtags
+  '(progn
+     (evil-make-overriding-map ggtags-mode-map 'normal)
+     ;; force update evil keymaps after ggtags-mode loaded
+     (add-hook 'ggtags-mode-hook #'evil-normalize-keymaps)))
+
 ;; global+speedbar for autocompletion
 (setq load-path (cons "/usr/share/emacs/site-lisp/global/gtags.el" load-path))
 (autoload 'gtags-mode "gtags" "" t)
@@ -71,7 +78,7 @@
       (evil-mode 1)
 ))
 (global-set-key (kbd "M-]") 'gtags-find-symbol)
-;;(global-set-key (kbd "M-[") 'gtags-find-rtag)
+(global-set-key (kbd "M-[") 'gtags-find-rtag)
 
 (require 'auto-complete-clang)
 (setq clang-completion-suppress-error 't)
@@ -155,6 +162,12 @@
  '(safe-local-variable-values
    (quote
     ((c-hanging-braces-alist
+      (brace-list-open)
+      (brace-list-close)
+      (block-close . c-snug-do-while)
+      (substatement-open before after))
+     (c-default-style "linux")
+     (c-hanging-braces-alist
       (substatement-open before after))
      (c-set-offset
       (quote substatement-open)
