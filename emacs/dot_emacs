@@ -75,7 +75,6 @@
 (add-hook 'c++-mode-hook
    '(lambda ()
       (gtags-mode t)
-      (evil-mode 1)
 ))
 (global-set-key (kbd "M-]") 'gtags-find-symbol)
 (global-set-key (kbd "M-[") 'gtags-find-rtag)
@@ -174,6 +173,7 @@
       0)
      (c-tab-always-indent . t)
      (c-default-style "bsd"))))
+ '(save-place t)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -235,9 +235,9 @@
 (require 'xcscope)
 
 ;; save last line
-(setq save-place-file "~/.emacs.d/saved-places")
 (require 'saveplace)
 (setq-default save-place t)
 
+(byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
 ;; Add final message so using C-h l I can see if .emacs failed
 (message ".emacs loaded successfully.")
