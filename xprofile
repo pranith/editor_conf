@@ -1,0 +1,2 @@
+# xrandr --output DVI-I-1 --left-of DVI-I-2
+setxkbmap -layout us -option ctrl:nocaps
