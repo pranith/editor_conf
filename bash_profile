@@ -36,7 +36,8 @@ export CCACHE_DIR="/home/pranith/devops/.ccache/"
 export CC="ccache gcc"
 export CXX="ccache g++"
 export PATH="/usr/lib/ccache:$PATH"
-export QSIM_PREFIX="/home/pranith/devops/code/qsim/"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/pranith/devops/code/qsim/lib
+export QSIM_PREFIX="/home/pranith/devops/code/qsim"
 export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$ "
 
 #emacs
