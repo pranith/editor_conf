@@ -14,7 +14,7 @@
 (setq sr-speedbar-skip-other-window-p t)
 (setq sr-speedbar-auto-refresh t)
 (setq sr-speedbar-max-width-x 20)
-(setq sr-speedbar-width 15)
+;; (setq sr-speedbar-width 15)
 
 ;; regular speedbar config
 (setq speedbar-show-unknown-files t)
@@ -75,9 +75,10 @@
 (add-hook 'c++-mode-hook
    '(lambda ()
       (gtags-mode t)
+      (evil-mode 1)
+      (global-set-key (kbd "M-]") 'gtags-find-symbol)
+      (global-set-key (kbd "M-[") 'gtags-find-rtag)
 ))
-(global-set-key (kbd "M-]") 'gtags-find-symbol)
-(global-set-key (kbd "M-[") 'gtags-find-rtag)
 
 (require 'auto-complete-clang)
 (setq clang-completion-suppress-error 't)
@@ -86,6 +87,8 @@
     '(lambda ()
       (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
         (ggtags-mode 1)
+        (global-set-key (kbd "M-]") 'gtags-find-symbol)
+        (global-set-key (kbd "M-[") 'gtags-find-rtag)
         (evil-mode 1))))
  
 (require 'auto-complete-config)
@@ -157,7 +160,15 @@
  '(display-time-mode t)
  '(fci-rule-color "#073642")
  '(inhibit-startup-screen t)
- '(package-selected-packages (quote (magit sml-mode org nlinum ggtags evil-jumper)))
+ '(org-file-apps
+   (quote
+    ((auto-mode . emacs)
+     ("\\.mm\\'" . default)
+     ("\\.x?html?\\'" . default)
+     ("\\.pdf\\'" . "evince %s"))))
+ '(package-selected-packages
+   (quote
+    (flycheck auctex magit sml-mode org nlinum ggtags evil-jumper)))
  '(safe-local-variable-values
    (quote
     ((c-hanging-braces-alist
@@ -173,7 +184,7 @@
       0)
      (c-tab-always-indent . t)
      (c-default-style "bsd"))))
- '(save-place t)
+ '(save-place-mode t)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -235,9 +246,39 @@
 (require 'xcscope)
 
 ;; save last line
+(setq save-place-file "~/.emacs.d/saved-places")
 (require 'saveplace)
 (setq-default save-place t)
+
+;; Force gdb-mi to not dedicate any windows
+(defadvice gdb-display-buffer (after undedicate-gdb-display-buffer)
+  (set-window-dedicated-p ad-return-value nil))
+(ad-activate 'gdb-display-buffer)
+
+(defadvice gdb-set-window-buffer (after undedicate-gdb-set-window-buffer (name &optional ignore-dedi window))
+  (set-window-dedicated-p window nil))
+(ad-activate 'gdb-set-window-buffer)
+
+(setq ispell-program-name "aspell") ; could be ispell as well, depending on your preferences
+(setq ispell-dictionary "english") ; this can obviously be set to any language your spell-checking program supports
+
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-buffer)
+
+(defun turn-on-outline-minor-mode ()
+(outline-minor-mode 1))
+
+; (add-hook 'LaTeX-mode-hook 'turn-on-outline-minor-mode)
+; (add-hook 'latex-mode-hook 'turn-on-outline-minor-mode)
+(setq outline-minor-mode-prefix "\C-c \C-o") ; Or something else
+	
+(setq-default TeX-master "main")
+
+(setq scroll-step 1)
+(setq scroll-conservatively 10000)
+(setq auto-window-vscroll nil)
 
 (byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
 ;; Add final message so using C-h l I can see if .emacs failed
 (message ".emacs loaded successfully.")
+
