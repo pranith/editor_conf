@@ -86,6 +86,7 @@
 (add-hook 'c-mode-common-hook
     '(lambda ()
       (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+        (c-set-style "linux")
         (ggtags-mode 1)
         (global-set-key (kbd "M-]") 'gtags-find-symbol)
         (global-set-key (kbd "M-[") 'gtags-find-rtag)
@@ -184,6 +185,7 @@
       0)
      (c-tab-always-indent . t)
      (c-default-style "bsd"))))
+ '(save-place t)
  '(save-place-mode t)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
@@ -258,6 +260,14 @@
 (defadvice gdb-set-window-buffer (after undedicate-gdb-set-window-buffer (name &optional ignore-dedi window))
   (set-window-dedicated-p window nil))
 (ad-activate 'gdb-set-window-buffer)
+
+; (require 'flymake)
+
+(defun flymake-get-tex-args (file-name)
+(list "pdflatex"
+(list "-file-line-error" "-draftmode" "-interaction=nonstopmode" file-name)))
+
+; (add-hook 'LaTeX-mode-hook 'flymake-mode)
 
 (setq ispell-program-name "aspell") ; could be ispell as well, depending on your preferences
 (setq ispell-dictionary "english") ; this can obviously be set to any language your spell-checking program supports

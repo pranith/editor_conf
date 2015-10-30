@@ -32,5 +32,5 @@ set window=49
 set number
 colorscheme torte
 syntax on
-filetype plugin on
+filetype indent plugin on
 " vim: set ft=vim :
