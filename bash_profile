@@ -41,8 +41,9 @@ export QSIM_PREFIX="/home/pranith/devops/code/qsim"
 export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$ "
 
 #emacs
-# export EDITOR='emacs -nw'
-# export VISUAL='emacs'
+export ALTERNATE_EDITOR=''
+export EDITOR='emacsclient -t'
+export VISUAL='emacsclient -t'
 
 # Invoke GnuPG-Agent the first time we login.
 # Does `~/.gpg-agent-info' exist and points to gpg-agent process accepting
