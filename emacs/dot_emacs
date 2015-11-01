@@ -51,16 +51,7 @@
 (setq org-latex-to-pdf-process '("texi2dvi --pdf --clean --verbose --batch %f"))
 (setq org-export-latex-hyperref-format "\\ref{%s}")
 
-(add-to-list 'load-path "~/.emacs.d/color-theme-sanityinc-solarized")
 (require 'color-theme-sanityinc-solarized)
-;(load-theme 'color-theme-sanityinc-solarized-dark)
-;;(add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
-;;(load-theme 'solarized-dark t)
-;;(if (daemonp)
-;;(add-hook 'after-make-frame-functions
-;;          (lambda (frame)
-;;            (load-theme 'solarized-light t)))
-;;(load-theme 'solarized-light t))
 
 ;; @see https://bitbucket.org/lyro/evil/issue/511/let-certain-minor-modes-key-bindings
 (eval-after-load 'ggtags
@@ -169,7 +160,7 @@
      ("\\.pdf\\'" . "evince %s"))))
  '(package-selected-packages
    (quote
-    (flycheck auctex magit sml-mode org nlinum ggtags evil-jumper)))
+    (color-theme-sanityinc-solarized flycheck auctex magit sml-mode org nlinum ggtags evil-jumper)))
  '(safe-local-variable-values
    (quote
     ((c-hanging-braces-alist
@@ -185,7 +176,6 @@
       0)
      (c-tab-always-indent . t)
      (c-default-style "bsd"))))
- '(save-place t)
  '(save-place-mode t)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
