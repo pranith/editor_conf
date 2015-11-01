@@ -32,14 +32,27 @@ export AVRO_ROOT=/home/pranith/devops/code/cloudComputing/avro/
 export ANDROID_HOME=/home/pranith/devops/android-ndk-r8b
 
 # ccache
-export CCACHE_DIR="/home/pranith/devops/.ccache/"
-export CC="ccache gcc"
-export CXX="ccache g++"
-export PATH="/usr/lib/ccache:$PATH"
+#export CCACHE_DIR="/home/pranith/devops/.ccache/"
+#export CC="ccache gcc"
+#export CXX="ccache g++"
+#export PATH="/usr/lib/ccache:$PATH"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/pranith/devops/code/qsim/lib
 export QSIM_PREFIX="/home/pranith/devops/code/qsim"
 export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$ "
 
 #emacs
-export EDITOR='emacs -nw'
-export VISUAL='emacs'
+# export EDITOR='emacs -nw'
+# export VISUAL='emacs'
+
+# Invoke GnuPG-Agent the first time we login.
+# Does `~/.gpg-agent-info' exist and points to gpg-agent process accepting
+# signals?
+if test -f $HOME/.gpg-agent-info && \
+    kill -0 `cut -d: -f 2 $HOME/.gpg-agent-info` 2>/dev/null; then
+    GPG_AGENT_INFO=`cat $HOME/.gpg-agent-info | cut -c 16-`
+else
+    # No, gpg-agent not available; start gpg-agent
+    eval `gpg-agent --daemon --no-grab --write-env-file $HOME/.gpg-agent-info`
+fi
+export GPG_TTY=`tty`
+export GPG_AGENT_INFO

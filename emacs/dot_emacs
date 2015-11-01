@@ -311,7 +311,6 @@
  user-full-name  "Pranith Kumar"
  message-signature
  (concat
-  "--\n"
   "Pranith\n"))
 
 ;; sending mail -- replace USERNAME with your gmail username
@@ -323,6 +322,8 @@
     smtpmail-stream-type 'starttls
     smtpmail-default-smtp-server "smtp.gmail.com"
     smtpmail-smtp-server "smtp.gmail.com"
+    smtpmail-auth-credentials
+    (expand-file-name "~/.authinfo.gpg")
     smtpmail-smtp-service 587)
 
 ;; don't keep message buffers around
