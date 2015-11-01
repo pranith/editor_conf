@@ -7,19 +7,19 @@
 (require 'sr-speedbar)
 ;; evil-mode - Thanks for all the fish, Vim!
 (require 'evil)
-;;(evil-mode 1)
+(evil-mode 1)
 
 ;; sr-speedbar config
 (setq sr-speedbar-right-side nil)
 (setq sr-speedbar-skip-other-window-p t)
 (setq sr-speedbar-auto-refresh t)
-(setq sr-speedbar-max-width-x 20)
+;; (setq sr-speedbar-max-width-x 20)
 ;; (setq sr-speedbar-width 15)
 
 ;; regular speedbar config
 (setq speedbar-show-unknown-files t)
 (setq speedbar-verbosity-level 0)
-(setq speedbar-use-images nil)
+;; (setq speedbar-use-images nil)
 
 ;; open it on startup
 ;; needs to be called in this hook for proper sizing
@@ -66,7 +66,6 @@
 (add-hook 'c++-mode-hook
    '(lambda ()
       (gtags-mode t)
-      (evil-mode 1)
       (global-set-key (kbd "M-]") 'gtags-find-symbol)
       (global-set-key (kbd "M-[") 'gtags-find-rtag)
 ))
@@ -80,8 +79,7 @@
         (c-set-style "linux")
         (ggtags-mode 1)
         (global-set-key (kbd "M-]") 'gtags-find-symbol)
-        (global-set-key (kbd "M-[") 'gtags-find-rtag)
-        (evil-mode 1))))
+        (global-set-key (kbd "M-[") 'gtags-find-rtag))))
  
 (require 'auto-complete-config)
 (ac-config-default)
@@ -277,6 +275,58 @@
 (setq scroll-step 1)
 (setq scroll-conservatively 10000)
 (setq auto-window-vscroll nil)
+
+;; You have mail... in emacs!
+(add-to-list 'load-path "/usr/local/share/emacs24/site-lisp/mu4e")
+(require 'mu4e)
+
+;; default
+(setq mu4e-maildir "~/devops/Maildir")
+(setq mu4e-drafts-folder "/[gmail].drafts")
+(setq mu4e-sent-folder   "/[gmail].sent_mail")
+(setq mu4e-trash-folder  "/[gmail].trash")
+
+;; don't save message to Sent Messages, Gmail/IMAP takes care of this
+(setq mu4e-sent-messages-behavior 'delete)
+
+;; setup some handy shortcuts
+;; you can quickly switch to your Inbox -- press ``ji''
+;; then, when you want archive some messages, move them to
+;; the 'All Mail' folder by pressing ``ma''.
+
+(setq mu4e-maildir-shortcuts
+      '( ("/inbox"               . ?i)
+         ("/[gmail].sent_mail"   . ?s)
+         ("/[gmail].trash"       . ?t)
+         ("/[gmail].all_mail"    . ?a)
+         ("/dev.lkml"            . ?l)
+         ("/dev.qemu"            . ?q)))
+
+;; allow for updating mail using 'U' in the main view:
+(setq mu4e-get-mail-command "offlineimap")
+
+;; something about ourselves
+(setq
+ user-mail-address "bobby.prani@gmail.com"
+ user-full-name  "Pranith Kumar"
+ message-signature
+ (concat
+  "--\n"
+  "Pranith\n"))
+
+;; sending mail -- replace USERNAME with your gmail username
+;; also, make sure the gnutls command line utils are installed
+;; package 'gnutls-bin' in Debian/Ubuntu
+
+(require 'smtpmail)
+(setq message-send-mail-function 'smtpmail-send-it
+    smtpmail-stream-type 'starttls
+    smtpmail-default-smtp-server "smtp.gmail.com"
+    smtpmail-smtp-server "smtp.gmail.com"
+    smtpmail-smtp-service 587)
+
+;; don't keep message buffers around
+(setq message-kill-buffer-on-exit t)
 
 (byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
 ;; Add final message so using C-h l I can see if .emacs failed
