@@ -14,7 +14,7 @@
 (setq sr-speedbar-skip-other-window-p t)
 (setq sr-speedbar-auto-refresh t)
 ;; (setq sr-speedbar-max-width-x 20)
-(setq sr-speedbar-width 15)
+;; (setq sr-speedbar-width 20)
 
 ;; regular speedbar config
 (setq speedbar-show-unknown-files t)
@@ -332,6 +332,12 @@
 
 ;; don't keep message buffers around
 (setq message-kill-buffer-on-exit t)
+
+;; do not show duplicates
+(setq mu4e-headers-skip-duplicates t)
+
+;; shortcut to start mu4e
+(global-set-key (kbd "C-x e") 'mu4e)
 
 ;; start emacs server
 (server-start)
