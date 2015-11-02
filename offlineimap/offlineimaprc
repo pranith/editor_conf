@@ -7,8 +7,8 @@ pythonfile = ~/.offlineimap.py
 localrepository = Local
 remoterepository = Remote
 maxage = 7
-autorefresh = 5
-quick = 10
+# autorefresh = 2
+# quick = 10
 
 
 [Repository Local]

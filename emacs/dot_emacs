@@ -14,7 +14,7 @@
 (setq sr-speedbar-skip-other-window-p t)
 (setq sr-speedbar-auto-refresh t)
 ;; (setq sr-speedbar-max-width-x 20)
-;; (setq sr-speedbar-width 15)
+(setq sr-speedbar-width 15)
 
 ;; regular speedbar config
 (setq speedbar-show-unknown-files t)
@@ -23,7 +23,9 @@
 
 ;; open it on startup
 ;; needs to be called in this hook for proper sizing
-(add-hook 'window-setup-hook (lambda () (sr-speedbar-open) (other-window 1)))
+(add-hook 'window-setup-hook (lambda () (sr-speedbar-open) (other-window 1)
+(with-current-buffer sr-speedbar-buffer-name
+  (setq window-size-fixed 'width))))
 
 ;; Setup speedbar, an additional frame for viewing source files
 ;;(autoload 'speedbar-frame-mode "speedbar" "Popup a speedbar frame" t)
@@ -277,7 +279,7 @@
 (setq auto-window-vscroll nil)
 
 ;; You have mail... in emacs!
-(add-to-list 'load-path "/usr/local/share/emacs24/site-lisp/mu4e")
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 (require 'mu4e)
 
 ;; default
@@ -303,7 +305,9 @@
          ("/dev.qemu"            . ?q)))
 
 ;; allow for updating mail using 'U' in the main view:
-(setq mu4e-get-mail-command "offlineimap")
+(setq
+   mu4e-get-mail-command "offlineimap"   ;; or fetchmail, or ...
+   mu4e-update-interval 300)             ;; update every 5 minutes
 
 ;; something about ourselves
 (setq
