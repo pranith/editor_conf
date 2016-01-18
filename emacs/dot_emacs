@@ -8,7 +8,11 @@
 ;; evil-mode - Thanks for all the fish, Vim!
 (require 'evil)
 (evil-mode 1)
-
+;; Bind some useful keys in the gtags select buffer that evil overrides.
+(add-hook 'gtags-select-mode-hook
+	  (lambda ()
+	    (evil-define-key 'normal gtags-select-mode-map (kbd "RET") 'gtags-select-tag)
+	    (evil-define-key 'normal gtags-select-mode-map (kbd "q") 'kill-buffer-and-window)))
 ;; sr-speedbar config
 (setq sr-speedbar-right-side nil)
 (setq sr-speedbar-skip-other-window-p t)
@@ -177,6 +181,8 @@
      (c-tab-always-indent . t)
      (c-default-style "bsd"))))
  '(save-place-mode t)
+ '(sr-speedbar-default-width 20)
+ '(sr-speedbar-max-width 20)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -307,7 +313,7 @@
 ;; allow for updating mail using 'U' in the main view:
 (setq
    mu4e-get-mail-command "offlineimap"   ;; or fetchmail, or ...
-   mu4e-update-interval 300)             ;; update every 5 minutes
+   mu4e-update-interval 600)             ;; update every 10 minutes
 
 ;; something about ourselves
 (setq
@@ -345,4 +351,3 @@
 (byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
 ;; Add final message so using C-h l I can see if .emacs failed
 (message ".emacs loaded successfully.")
-
