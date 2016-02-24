@@ -4,13 +4,12 @@ alias gsend='git send-email --from "Pranith Kumar <bobby.prani@gmail.com>" --env
 alias b="./build.py -j16"
 alias bd="./build.py -d -j16"
 alias bc="./build.py -c"
-alias vim="emacs -nw"
+alias bq="./build.py -q -j16"
+alias bqd="./build.py -qd -j16"
+alias vim="emacsclient -t"
+alias vi="emacsclient -t"
+alias e="emacsclient -t"
 
-export PATH=$PATH:/usr/bin:/sbin:/usr/local/bin:/home/pranith/intel/bin:/usr/sbin:/home/pranith/pin:/usr/local/cuda/bin/
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/pranith/pin/intel64/lib-ext:/lib:/usr/lib:/usr/local/lib:/home/pranith/prophet/pin-linux/intel64/bin/:/usr/local/cuda/lib64/:/usr/local/cuda/lib/
-
-export TMOUT=0
-export AF_PATH=/home/pranith/arrayfire/arrayfire
 # source /hparch/software/intel/bin/compilervars.sh intel64
 # source /opt/intel/bin/compilervars.sh intel64
 # alias icpc="icpc -B/usr/lib/x86_64-linux-gnu -I/usr/include/x86_64-linux-gnu"
@@ -22,14 +21,6 @@ DEBFULLNAME="Pranith Kumar"
 export DEBEMAIL DEBFULLNAME
 export PATH=$PATH:/home/pranith/mendeley/mendeleydesktop-1.6-linux-x86_64/bin/
 #export LD_LIBRARY_PATH=/home/pranith/devops/code/opencv.git/opencv/lib/:/home/pranith/pin/intel64/runtime/:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/home/pranith/devops/code/opencv.git/opencv/lib/:$LD_LIBRARY_PATH
-export PIN_HOME=/home/pranith/pin
-
-export PATH=$PATH:/home/pranith/devops/android-sdk-linux/tools:/home/pranith/devops/android-sdk-linux/platform-tools
-export NDK_ROOT=/home/pranith/devops/android-ndk-r8b
-export NDKROOT=/home/pranith/devops/android-ndk-r8b
-export AVRO_ROOT=/home/pranith/devops/code/cloudComputing/avro/
-export ANDROID_HOME=/home/pranith/devops/android-ndk-r8b
 
 # ccache
 #export CCACHE_DIR="/home/pranith/devops/.ccache/"
@@ -43,7 +34,6 @@ export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$ "
 #emacs
 export ALTERNATE_EDITOR=''
 export EDITOR='emacsclient -t'
-export VISUAL='emacsclient -t'
 
 # Invoke GnuPG-Agent the first time we login.
 # Does `~/.gpg-agent-info' exist and points to gpg-agent process accepting
@@ -57,3 +47,7 @@ else
 fi
 export GPG_TTY=`tty`
 export GPG_AGENT_INFO
+
+export SST_HOME=/home/pranith/devops/code/sst/sst_home/
+export DRAMSIM2_HOME=/home/pranith/devops/code/DRAMSim2
+export PATH=$PATH:$SST_HOME/bin
