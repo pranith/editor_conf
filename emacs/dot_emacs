@@ -345,6 +345,14 @@
 ;; shortcut to start mu4e
 (global-set-key (kbd "C-x e") 'mu4e)
 
+;; create backups
+(setq backup-directory-alist `(("." . "~/.saves")))
+(setq backup-by-copying t)
+(setq delete-old-versions t
+  kept-new-versions 6
+  kept-old-versions 2
+  version-control t)
+
 ;; start emacs server
 (server-start)
 
