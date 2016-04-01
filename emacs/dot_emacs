@@ -164,10 +164,11 @@
      ("\\.pdf\\'" . "evince %s"))))
  '(package-selected-packages
    (quote
-    (color-theme-sanityinc-solarized flycheck auctex magit sml-mode org nlinum ggtags evil-jumper)))
+    (circe color-theme-sanityinc-solarized flycheck auctex magit sml-mode org nlinum ggtags evil-jumper)))
  '(safe-local-variable-values
    (quote
-    ((c-hanging-braces-alist
+    ((c-tab-always-indent)
+     (c-hanging-braces-alist
       (brace-list-open)
       (brace-list-close)
       (block-close . c-snug-do-while)
@@ -352,6 +353,14 @@
   kept-new-versions 6
   kept-old-versions 2
   version-control t)
+
+(load-file "~/.private.el")
+;; circe IRC client
+(("oftc"
+  :nick "pranith"
+  :channels ("#linux-rt #kernelnewbies #qemu" "#qsim" "#qemu-gsoc" "#qemu-mttcg")
+  :nickserv-password ,oftc-password)))
+(setq circe-reduce-lurker-spam t)
 
 ;; start emacs server
 (server-start)
