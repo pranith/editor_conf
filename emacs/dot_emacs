@@ -356,11 +356,20 @@
 
 (load-file "~/.private.el")
 ;; circe IRC client
-(("oftc"
-  :nick "pranith"
-  :channels ("#linux-rt #kernelnewbies #qemu" "#qsim" "#qemu-gsoc" "#qemu-mttcg")
-  :nickserv-password ,oftc-password)))
+(setq circe-network-options
+      '(("oftc"
+	 :host "irc.oftc.net"
+	 :port (6667)
+	 :nick "pranith"
+	 :channels ("#linux-rt" "#kernelnewbies" "#qemu" "#qsim" "#qemu-gsoc" "#qemu-mttcg")
+	 :nickserv-password ,oftc-password)))
 (setq circe-reduce-lurker-spam t)
+
+(add-hook 'c-mode-hook
+	  (lambda ()
+	    (add-to-list 'ac-sources 'ac-source-c-headers)
+	    (add-to-list 'ac-sources 'ac-source-c-header-symbols t)))
+
 
 ;; start emacs server
 (server-start)
