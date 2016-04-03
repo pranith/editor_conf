@@ -164,7 +164,7 @@
      ("\\.pdf\\'" . "evince %s"))))
  '(package-selected-packages
    (quote
-    (circe color-theme-sanityinc-solarized flycheck auctex magit sml-mode org nlinum ggtags evil-jumper)))
+    (helm-swoop helm-cscope helm circe color-theme-sanityinc-solarized flycheck auctex magit sml-mode org nlinum ggtags evil-jumper)))
  '(safe-local-variable-values
    (quote
     ((c-tab-always-indent)
@@ -365,11 +365,21 @@
 	 :nickserv-password ,oftc-password)))
 (setq circe-reduce-lurker-spam t)
 
+;; auto-complete source headers
 (add-hook 'c-mode-hook
 	  (lambda ()
 	    (add-to-list 'ac-sources 'ac-source-c-headers)
 	    (add-to-list 'ac-sources 'ac-source-c-header-symbols t)))
 
+(require 'helm-config)
+
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+
+(global-set-key (kbd "M-i") 'helm-swoop)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "C-x m") 'helm-M-x)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 ;; start emacs server
 (server-start)
