@@ -174,3 +174,9 @@ bindsym XF86AudioPrev exec playerctl previous
 # Set Brightness: install xbacklight
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+
+# Set screen lock
+bindsym $mod+Ctrl+l exec i3lock -c 000000
+
+# network manager
+exec --no-startup-id nm-applet
