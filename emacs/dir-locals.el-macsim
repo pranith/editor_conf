@@ -7,4 +7,4 @@
                     (brace-list-close)
                     (block-close . c-snug-do-while)
                     (substatement-open before after)))
-         (fill-column . 80)))
+         (fill-column . 80))))
