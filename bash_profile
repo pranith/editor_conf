@@ -27,8 +27,9 @@ export PATH=$PATH:/home/pranith/mendeley/mendeleydesktop-1.6-linux-x86_64/bin/
 #export CC="ccache gcc"
 #export CXX="ccache g++"
 #export PATH="/usr/lib/ccache:$PATH"
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/pranith/devops/code/qsim/lib
-export QSIM_PREFIX="/home/pranith/devops/code/qsim"
+export QSIM_PREFIX="/home/pranith/qsim"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$QSIM_PREFIX/lib
+export PATH=$PATH:$QSIM_PREFIX/tools/gcc-linaro-5.3-2016.02-x86_64_aarch64-linux-gnu/bin
 export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$ "
 
 #emacs
