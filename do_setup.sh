@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Set password..."
+passwd
 apt update
 apt -y install vim emacs git byobu gcc g++
 addgroup pranith
