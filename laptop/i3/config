@@ -179,4 +179,9 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym $mod+Ctrl+l exec i3lock -c 000000
 
 # network manager
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
+exec_always nm-applet
+exec_always synapse -s
+exec_always redshift-gtk
+bindsym Ctrl+Mod1+l exec --no-startup-id i3lock -d -c 000000
+bindsym $mod+c exec zenity --calendar
