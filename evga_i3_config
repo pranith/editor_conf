@@ -161,8 +161,14 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0
 
 exec_always nm-applet
 exec_always synapse -s
-exec_always redshift-gtk
+# exec_always redshift-gtk
 exec_always clipit
 exec_always volumeicon
 bindsym Ctrl+Mod1+l exec --no-startup-id i3lock -d -c 000000
 bindsym $mod+c exec zenity --calendar
+bindsym $mod+Ctrl+s exec --no-startup-id systemctl suspend
+bindsym $mod+Ctrl+h exec --no-startup-id systemctl hibernate
+
+# set wallpaper
+exec --no-startup-id feh --bg-scale /home/pranith/Pictures/yosemite.jpg
+exec --no-startup-id /usr/libexec/geoclue-2.0/demos/agent
